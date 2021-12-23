@@ -1,0 +1,49 @@
+from            : markdown+raw_tex
+to              : latex
+standalone      : true
+data-dir        : "_lib"
+file-scope      : true
+number-sections : true
+pdf-engine      : xelatex
+fail-if-warnings: true
+cite-method     : citeproc
+filters:
+  - pandoc-crossref
+  - citeproc
+variables:
+  documentclass: article
+  fontsize: 11pt
+  geometry:
+    - top=3cm
+    - right=2cm
+    - bottom=2.5cm
+    - left=3cm
+  header-includes:
+    - \usepackage{fancyhdr}
+    - \pagestyle{fancy}
+    - \fancyhf{}
+    - \lhead{\XeTeXglyph \XeTeXglyphindex "ass_completa_CONT" \relax}
+    - \lfoot{\small{FAU/THAU/PP/2021}}
+    - \rfoot{\small{\thepage}}
+    - \renewcommand{\headrulewidth}{0.5pt}
+    - \renewcommand{\footrulewidth}{0.5pt}
+    - \usepackage{academicons}
+    - \usepackage{multicol}
+    - \setlength{\columnsep}{15pt}
+    - \usepackage{csquotes}
+    - \usepackage[overload]{textcase}
+    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+  include-before:
+    - \thispagestyle{fancy}
+    - \let\oldsc\textsc
+    - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
+  indent: true
+  mainfont: "UnB Pro"
+  sansfont: "UnB Pro-Light"
+  mainfontoptions:
+    - Numbers        = Proportional
+    - BoldFont       = UnBPro-Bold
+    - ItalicFont     = UnBPro-RegularItalic
+    - BoldItalicFont = UnBPro-BoldItalic
+  papersize: a4
+  secnumdepth: 2
