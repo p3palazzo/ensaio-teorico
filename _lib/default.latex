@@ -436,6 +436,8 @@ $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
 $endif$
+% Pedro removed the abstract title *********************
+\renewenvironment{abstract}{\quotation}
 
 \begin{document}
 $if(has-frontmatter)$

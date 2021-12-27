@@ -10,6 +10,7 @@ cite-method     : citeproc
 filters:
   - pandoc-crossref
   - citeproc
+template        : "_lib/default.latex"
 variables:
   documentclass: article
   fontsize: 11pt
@@ -32,7 +33,6 @@ variables:
     - \setlength{\columnsep}{15pt}
     - \usepackage{csquotes}
     - \usepackage[overload]{textcase}
-    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
   include-before:
     - \thispagestyle{fancy}
     - \let\oldsc\textsc

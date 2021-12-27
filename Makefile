@@ -2,9 +2,9 @@ vpath %.yaml .:_spec
 
 PANDOC/LATEX := docker run -u "`id -u`:`id -g`" \
 		-v "`pwd`:/data" -v "`pwd`/assets/fonts:/usr/share/fonts" \
-		pandoc/latex:2.16.1
+		palazzo/pandoc-unb:2.16.1
 
-artigo.pdf : artigo.md pdf.yaml bibliografia.yaml
+plano.pdf : plano.md pdf.yaml _lib/default.latex
 	$(PANDOC/LATEX) -o $@ -d _spec/pdf.yaml $<
 
 .PHONY : clean
